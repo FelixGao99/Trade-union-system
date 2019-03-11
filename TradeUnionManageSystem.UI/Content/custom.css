@@ -1,0 +1,42 @@
+﻿
+#btnSearch{
+    margin: 10px auto !important;
+}
+
+.hiddenTh{
+    display: none;
+}
+
+#tableTest{
+    height: 250px;
+}
+
+.table-search-container{
+    width: 100%;
+    margin-top: 15px;
+}
+
+.table-action-container{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    background: -webkit-linear-gradient(90deg, lightblue, white, lightblue); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, lightblue, white, lightblue); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, lightblue, white, lightblue); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, lightblue, white, lightblue); /* 标准的语法（必须放在最后） */
+}
+
+.databrowser-dialog{
+    width: 900px !important;
+}
+
+.databrowser-dialog .table{
+    min-height: 300px;
+    overflow: scroll !important;
+}
+
+.databrowser-dialog .modal-body{
+    overflow: scroll;
+}

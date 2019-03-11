@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TradeUnionManageSystem.UI.Models.DisplayModel.WorkingCongressDisplayModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressSession)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RepresentAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendanceAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposalAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressSession)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RepresentAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendanceAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposalAmount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

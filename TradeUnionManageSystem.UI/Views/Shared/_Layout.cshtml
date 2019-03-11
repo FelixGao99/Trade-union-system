@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 工会管理系统</title>
+
+    <link href="~/Content/custom.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <!--打印/导出功能-->
+    <script src="~/Scripts/table-action.js"></script>
+
+    <!--分页插件-->
+    <script src="~/Scripts/bootstrap-paginator.js"></script>
+</head>
+<body>
+    <div id="nav" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("工会管理系统", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("会员管理", "Index", "EmployeeManage")</li>
+                    <li>@Html.ActionLink("荣誉管理", "Index", "Honor")</li>
+                    <li>@Html.ActionLink("劳模管理", "Index", "ModelWorker")</li>
+                    <li>@Html.ActionLink("班组管理", "Index", "WorkingTeam")</li>
+                    <li>@Html.ActionLink("提案管理", "Index", "Proposal")</li>
+                    <li>@Html.ActionLink("职代会管理", "Index", "WorkersCongress")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            常量管理
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("岗位管理", "Index", "PositionManage")</li>
+                            <li>@Html.ActionLink("单位管理", "Index", "WorkingUnitManage")</li>
+                            <li>@Html.ActionLink("团体管理", "Index", "WorkingGroupManage")</li>
+                        </ul>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 工会管理系统</p>
+            <br />
+            <p>By Group Z~</p>
+        </footer>
+    </div>
+
+</body>
+</html>

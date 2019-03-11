@@ -1,0 +1,127 @@
+﻿@model IEnumerable<TradeUnionManageSystem.BLL.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--操作菜单-->
+<div class="table-action-container">
+    <div class="btn-group">
+        @Html.ActionLink("添加", "Create", null, new { type = "button", @class = "btn btn-default" })
+        @Html.ActionLink("删除", "Delete", null, new { type = "button", @class = "btn btn-default" })
+        <a id="btnPrint" href="#" type="button" class="btn btn-default">打印</a>
+        <a id="btnExport" href="#" type="button" class="btn btn-default">导出</a>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" data-toggle="collapse"
+                data-target="#advancedSearch">
+            高级查询
+        </button>
+    </div>
+</div>
+
+<!--高级查询-->
+<div id="advancedSearch" class="panel-collapse collapse">
+    <div class="panel-body">
+        <form id="SearchForm" role="form">
+            <div class="row">
+                <div class="col-lg-6 form-group">
+                    <label for="name" class="col-sm-3 control-label">姓名</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="EmployeeName" placeholder="请输入姓名">
+                    </div>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label for="name" class="col-sm-3 control-label">性别</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" name="EmployeeGender">
+                            <option>男</option>
+                            <option>女</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 form-group">
+                    <label for="name" class="col-sm-2 control-label">出生日期</label>
+                    <div class="col-sm-5">
+                        <input type="date" name="BirthdayStart" class="form-control">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="date" name="BirthdayEnd" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-sm-12">
+                <input id="btnSearch" type="submit" class="btn btn-primary btn-block btn-advanceSerach" value="查询" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--表格-->
+<div id="tableTest">
+    @Html.Partial("EmployeeList")
+</div>
+
+<!--分页栏-->
+<nav style="text-align: center">
+    <ul id="example" class="pagination"></ul>
+</nav>
+
+<!--分页js-->
+<script type ="text/javascript">
+    $(function () {
+        $("#btnSearch").on("click", function () {
+            $.ajax({
+                type: 'get',
+                url: '/EmployeeManage/GetEmployeeList',
+                data: $.param({ 'currentPage': $('#currentPage').val(), 'pageSize': 5, 'searchType': 'AdvancedSearch' }) + '&' + $("#SearchForm").serialize(),
+                async: true,
+                success: function (result) {
+                    $('#tableTest').html(result);
+                    $('#example').bootstrapPaginator({
+                        currentPage: $('#currentPage').val(),  //当前页
+                        totalPages: $('#totalPages').val(),  //总页数
+                    });
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            })
+        });
+
+        $('#example').bootstrapPaginator({
+            currentPage: $('#currentPage').val(),  //当前页
+            totalPages: $('#totalPages').val(),  //总页数
+            bootstrapMajorVersion: 3,  //兼容Bootstrap3.x版本
+            tooltipTitles: function (type, page) {
+                switch (type) {
+                    case "first":
+                        return "第一页";
+                    case "prev":
+                        return "上一页";
+                    case "next":
+                        return "下一页";
+                    case "last":
+                        return "最后一页";
+                    case "page":
+                        return page;
+                }
+                return "";
+            },
+            onPageClicked: function (event, originalEvent, type, page) {
+                $.get('/EmployeeManage/GetEmployeeList',
+                    {
+                        currentPage: page,
+                        pageSize: 5
+                    },
+                    function (view) {
+                        $('#tableTest').html(view);
+                    });
+            }
+        });
+    })
+</script >

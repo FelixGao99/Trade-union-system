@@ -1,0 +1,58 @@
+﻿@model TradeUnionManageSystem.BLL.Models.Proposal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Proposal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProposalType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProposalType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProposalEmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProposalEmployeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProposalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProposalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProposalDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProposalDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProposalDealStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProposalDealStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

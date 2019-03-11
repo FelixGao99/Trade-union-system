@@ -1,0 +1,74 @@
+﻿@model TradeUnionManageSystem.BLL.Models.WorkersCongress
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WorkersCongress</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CongressSession)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CongressSession)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CongressTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CongressTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RepresentAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RepresentAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttendanceAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttendanceAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProposalAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProposalAmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

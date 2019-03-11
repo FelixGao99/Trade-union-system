@@ -1,0 +1,148 @@
+﻿@model TradeUnionManageSystem.BLL.Models.Honor
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>荣耀页面</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.HonorTarget, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="HonorTarget" class="form-control">
+                    <option>个人</option>
+                    <option>单位</option>
+                    <option>团体</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HonorLevel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HonorLevel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HonorLevel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreateTime, new { htmlAttributes = new { type = "date", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreateTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreateDeptCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreateDeptCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreateDeptCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployeeID, new { htmlAttributes = new { @class = "form-control col-xs-11" } })
+                @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger" })
+                @Html.DataBrowserBtn(DataBrowserType.Employee, "ID")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeJobCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployeeJobCode, new { htmlAttributes = new { @class = "form-control col-xs-11" } })
+                @Html.ValidationMessageFor(model => model.EmployeeJobCode, "", new { @class = "text-danger" })
+                @Html.DataBrowserBtn(DataBrowserType.Position, "ID")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeUnitCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployeeUnitCode, new { htmlAttributes = new { @class = "form-control col-xs-11" } })
+                @Html.ValidationMessageFor(model => model.EmployeeUnitCode, "", new { @class = "text-danger" })
+                @Html.DataBrowserBtn(DataBrowserType.WorkingUnit, "ID")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeGroupCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmployeeGroupCode, new { htmlAttributes = new { @class = "form-control col-xs-11" } })
+                @Html.ValidationMessageFor(model => model.EmployeeGroupCode, "", new { @class = "text-danger" })
+                @Html.DataBrowserBtn(DataBrowserType.WorkingGroup, "ID")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("返回列表", "Index")
+</div>
+
+@Html.DataBrowserWindow(DataBrowserType.Employee)
+@Html.DataBrowserWindow(DataBrowserType.Position)
+@Html.DataBrowserWindow(DataBrowserType.WorkingUnit)
+@Html.DataBrowserWindow(DataBrowserType.WorkingGroup)
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+
+    $(function () {
+        // 目标输入框
+        var databrowser_target_btn = null;
+        var databrowser_target_input = null;
+
+        // 开窗
+        $(".btn-databrowser-open").on("click", function () {
+            databrowser_target_btn = $(this);
+            databrowser_target_input = $(this).siblings("input").eq(0);
+        });
+
+        // 修改目标输入框的值
+        $(".databrowser-ok").on("click", function () {
+            var target_property_name = databrowser_target_btn.data("property");
+            var result = GetDataBrowserValue(this, target_property_name);
+            databrowser_target_input.val(result);
+            databrowser_target_input = null;
+            $(this).parents(".modal").eq(0).modal('hide');
+        });
+
+        // 获取开窗选择的值
+        function GetDataBrowserValue(target, pName) {
+            var value = null;
+            var selectors = $(target).parent().siblings(".modal-body").find(".databrowser-selector:checked");
+            var columns = selectors.parent().siblings();
+            $.each(columns, function (i) {
+                var property_name = columns.eq(i).data("property");
+                if (property_name == pName) {
+                    value = columns.eq(i).text();
+                }
+            });
+            return value;
+        }
+    });
+
+</script>

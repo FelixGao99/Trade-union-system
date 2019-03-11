@@ -1,0 +1,22 @@
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\TradeUnionManageSystem.BLL.dll.config
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\TradeUnionManageSystem.BLL.dll
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\TradeUnionManageSystem.BLL.pdb
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\EntityFramework.dll
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\EntityFramework.SqlServer.dll
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\EntityFramework.xml
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\EntityFramework.SqlServer.xml
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\obj\Debug\TradeUnionManageSystem.BLL.dll
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\obj\Debug\TradeUnionManageSystem.BLL.pdb
+d:\backup\documents\visual studio 2015\Projects\TradeUnionManageSystem\TradeUnionManageSystem.BLL\obj\Debug\TradeUnionManageSystem.BLL.csprojResolveAssemblyReference.cache
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\TradeUnionManageSystem.BLL.dll.config
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\TradeUnionManageSystem.BLL.dll
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\TradeUnionManageSystem.BLL.pdb
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\EntityFramework.dll
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\EntityFramework.xml
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\obj\Debug\TradeUnionManageSystem.BLL.csprojAssemblyReference.cache
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\obj\Debug\TradeUnionManageSystem.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\obj\Debug\TradeUnionManageSystem.BLL.csproj.CopyComplete
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\obj\Debug\TradeUnionManageSystem.BLL.dll
+C:\Users\Glas Fie\Desktop\TradeUnionManageSystem\TradeUnionManageSystem.BLL\obj\Debug\TradeUnionManageSystem.BLL.pdb

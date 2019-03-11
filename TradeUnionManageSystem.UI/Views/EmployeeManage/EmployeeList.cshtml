@@ -1,0 +1,68 @@
+﻿@model IEnumerable<TradeUnionManageSystem.BLL.Models.Employee>
+
+<div class="tableContainer">
+
+    <input id="currentPage" type="hidden" value="@ViewData["currentPage"]" />
+    <input id="totalPages" type="hidden" value="@ViewData["totalPages"]" />
+
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Birthday)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JobCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnitCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GroupCode)
+                </th>
+                <th>
+                    更多操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Birthday)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GroupCode)
+                    </td>
+                    <td>
+                        @Html.ActionLink("编辑", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("详细内容", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("删除", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    
+
+</div>

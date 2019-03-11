@@ -1,0 +1,82 @@
+﻿@model TradeUnionManageSystem.BLL.Models.WorkingTeam
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WorkingTeam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonitorEmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonitorEmployeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonitorPoliticalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonitorPoliticalStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubMonitorEmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubMonitorEmployeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubMonitorPoliticalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubMonitorPoliticalStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

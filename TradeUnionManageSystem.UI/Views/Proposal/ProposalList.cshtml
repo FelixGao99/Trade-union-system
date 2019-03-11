@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TradeUnionManageSystem.UI.Models.DisplayModel.ProposalDisplayModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposalType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposalEmployeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposalDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposalDealStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposalType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposalEmployeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposalDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposalDealStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

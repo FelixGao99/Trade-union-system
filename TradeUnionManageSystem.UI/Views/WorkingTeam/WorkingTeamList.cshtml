@@ -1,0 +1,81 @@
+﻿@model IEnumerable<TradeUnionManageSystem.UI.Models.DisplayModel.WorkingTeamDisplayModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonitorEmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonitorPoliticalStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubMonitorEmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubMonitorPoliticalStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonitorEmployeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubMonitorEmployeeID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonitorEmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonitorPoliticalStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubMonitorEmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubMonitorPoliticalStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonitorEmployeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubMonitorEmployeeID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

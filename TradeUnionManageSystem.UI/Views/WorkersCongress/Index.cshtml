@@ -1,0 +1,158 @@
+﻿@model IEnumerable<TradeUnionManageSystem.BLL.Models.WorkersCongress>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="table-action-container">
+    <div class="btn-group">
+        @Html.ActionLink("添加", "Create", null, new { type = "button", @class = "btn btn-default" })
+        @Html.ActionLink("删除", "Delete", null, new { type = "button", @class = "btn btn-default" })
+        @Html.ActionLink("打印", "Print", null, new { type = "button", @class = "btn btn-default" })
+        @Html.ActionLink("导出", "Export", null, new { type = "button", @class = "btn btn-default" })
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" data-toggle="collapse"
+                data-target="#advancedSearch">
+            高级查询
+        </button>
+    </div>
+</div>
+
+<div id="advancedSearch" class="panel-collapse collapse">
+    <div class="panel-body">
+        <form role="form">
+            <div class="row">
+                <div class="col-lg-6 form-group">
+                    <label for="name" class="col-sm-3 control-label">单位</label>
+                    <div class="col-sm-9">
+                        <select class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label for="name" class="col-sm-2 control-label">召开日期</label>
+                    <div class="col-sm-5">
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 form-group">
+                    <label for="name" class="col-sm-2 control-label">正式代表人数</label>
+                    <div class="col-sm-5">
+                        <input type="number" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="number" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label for="name" class="col-sm-2 control-label">列席代表人数</label>
+                    <div class="col-sm-5">
+                        <input type="number" class="form-control" placeholder="">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="number" class="form-control" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 form-group">
+                    <div class="col-lg-6 form-group">
+                        <label for="name" class="col-sm-2 control-label">提案数</label>
+                        <div class="col-sm-5">
+                            <input type="number" class="form-control" placeholder="">
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="number" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input id="btnSearch" type="submit" class="btn btn-default btn-block" value="查询" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            编辑
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressSession)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RepresentAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendanceAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposalAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.ID })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressSession)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RepresentAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendanceAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposalAmount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

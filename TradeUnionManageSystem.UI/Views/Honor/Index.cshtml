@@ -1,0 +1,169 @@
+﻿@model IEnumerable<TradeUnionManageSystem.UI.Models.DisplayModel.HonorDisplayModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    List<SelectListItem> gender = new List<SelectListItem> {
+        new SelectListItem { Text = "男", Value = "0",Selected = true},
+        new SelectListItem { Text = "女", Value = "1" }
+    };
+
+    List<SelectListItem> honorTarget = new List<SelectListItem> {
+        new SelectListItem { Text = "个人", Value = "个人",Selected = true},
+        new SelectListItem { Text = "单位", Value = "单位" },
+        new SelectListItem { Text = "团体", Value = "团体" }
+    };
+}
+
+<!--操作菜单-->
+<div class="table-action-container">
+    <div class="btn-group">
+        @Html.ActionLink("添加", "Create", null, new { type = "button", @class = "btn btn-default" })
+        @Html.ActionLink("删除", "Delete", null, new { type = "button", @class = "btn btn-default" })
+        <a id="btnPrint" href="#" type="button" class="btn btn-default">打印</a>
+        <a id="btnExport" href="#" type="button" class="btn btn-default">导出</a>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" data-toggle="collapse"
+                data-target="#advancedSearch">
+            高级查询
+        </button>
+    </div>
+</div>
+
+<!--高级查询-->
+<div id="advancedSearch" class="panel-collapse collapse">
+    <div class="panel-body">
+        <form id="SearchForm" role="form">
+            <div class="row">
+                <div class="col-lg-4 form-group">
+                    <label for="name" class="col-sm-3 control-label">获奖称号</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="HonorName" class="form-control" placeholder="请输入获奖称号">
+                    </div>
+                </div>
+                <div class="col-lg-4 form-group">
+                    <label for="name" class="col-sm-3 control-label">称号级别</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="HonorLevel" class="form-control" placeholder="请输入称号级别">
+                    </div>
+                </div>
+                <div class="col-lg-4 form-group">
+                    <label for="name" class="col-sm-3 control-label">姓名</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="EmployeeName" class="form-control" placeholder="请输入姓名">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 form-group">
+                    <label for="name" class="col-sm-3 control-label">所在单位</label>
+                    <div class="col-sm-9">
+                        @Html.DropDownList("EmployeeUnitCode", ViewBag.EmployeeUnits as SelectList, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-lg-4 form-group">
+                    <label for="name" class="col-sm-3 control-label">从事岗位</label>
+                    <div class="col-sm-9">
+                        @Html.DropDownList("EmployeeJobCode", ViewBag.EmployeePositions as SelectList, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-lg-4 form-group">
+                    <label for="name" class="col-sm-3 control-label">性别</label>
+                    <div class="col-sm-9">
+                        @Html.DropDownList("Gender", gender, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 form-group">
+                    <label for="name" class="col-sm-2 control-label">获奖日期</label>
+                    <div class="col-sm-5">
+                        <input type="date" name="HonorStartTime" class="form-control">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="date" name="HonorEndTime" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label for="name" class="col-sm-3 control-label">获奖对象</label>
+                    <div class="col-sm-9">
+                        @Html.DropDownList("HonorTarget", honorTarget, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-sm-12">
+                <input id="btnSearch" type="submit" class="btn btn-default btn-block" value="查询" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--表格-->
+<div id="tableTest">
+    @Html.Partial("HonorList")
+</div>
+
+<!--分页栏-->
+<nav style="text-align: center">
+    <ul id="example" class="pagination"></ul>
+</nav>
+
+<!--分页js-->
+<script type="text/javascript">
+    $(function () {
+        $("#btnSearch").on("click", function () {
+            $.ajax({
+                type: 'get',
+                url: '/Honor/GetHonorList',
+                data: $.param({ 'currentPage': $('#currentPage').val(), 'pageSize': 5, 'searchType': 'AdvancedSearch' }) + '&' + $("#SearchForm").serialize(),
+                async: true,
+                success: function (result) {
+                    $('#tableTest').html(result);
+                    $('#example').bootstrapPaginator({
+                        currentPage: $('#currentPage').val(),  //当前页
+                        totalPages: $('#totalPages').val(),  //总页数
+                    });
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            })
+        });
+
+        $('#example').bootstrapPaginator({
+            currentPage: $('#currentPage').val(),  //当前页
+            totalPages: $('#totalPages').val(),  //总页数
+            bootstrapMajorVersion: 3,  //兼容Bootstrap3.x版本
+            tooltipTitles: function (type, page) {
+                switch (type) {
+                    case "first":
+                        return "第一页";
+                    case "prev":
+                        return "上一页";
+                    case "next":
+                        return "下一页";
+                    case "last":
+                        return "最后一页";
+                    case "page":
+                        return page;
+                }
+                return "";
+            },
+            onPageClicked: function (event, originalEvent, type, page) {
+                $.get('/Honor/GetHonorList',
+                    {
+                        currentPage: page,
+                        pageSize: 5
+                    },
+                    function (view) {
+                        $('#tableTest').html(view);
+                    });
+            }
+        });
+    })
+</script>

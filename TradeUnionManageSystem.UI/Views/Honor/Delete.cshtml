@@ -1,0 +1,88 @@
+﻿@model TradeUnionManageSystem.BLL.Models.Honor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>删除页面</h2>
+
+<h3>确定要删除这条信息吗?</h3>
+<div>
+    <h4>Honor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HonorTarget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HonorTarget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HonorLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HonorLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDeptCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDeptCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeJobCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeJobCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeUnitCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeUnitCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeGroupCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeGroupCode)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("返回列表", "Index")
+        </div>
+    }
+</div>
